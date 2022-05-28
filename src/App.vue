@@ -1,6 +1,9 @@
 <template>
   <div>
     <h1> Twój email to {{email}}</h1>
+    <div v-if="email.length < 10">Ale masz krótki adres!</div>
+    <div v-else-if="email.length < 15">Twój adres e-mail jest w sam raz.</div>
+    <div class="toLong"v-else>Twój adres e-mail jest stanowczo za długi.</div>
     <input type="text" v-model="email">
   </div>
 </template>
@@ -18,5 +21,8 @@ export default {
 </script>
 
 <style>
+.toLong{
+  color: red;
+}
 
 </style>
